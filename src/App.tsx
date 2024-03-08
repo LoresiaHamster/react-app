@@ -8,6 +8,9 @@ function App() {
     "London",
     "Paris",
     "Amsterdam",
+    "Rome",
+    "Barselona",
+    "Brouge",
   ];
   const handleSelectItem = (item: string) => {
     console.log(item);
