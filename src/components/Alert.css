@@ -1,0 +1,29 @@
+.alert {
+  display: block;
+  max-width: 300px;
+  border: 1px solid gray;
+  padding: 14px;
+  border-radius: 10px;
+  position: relative;;
+}
+
+.alert_primary {
+  border-color:#b8daff;
+  background-color:#cce5ff; 
+  color: #004085;
+}
+
+.alert_dismissible {
+  padding-right: 4rem;
+}
+
+.alert_dismissible .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
