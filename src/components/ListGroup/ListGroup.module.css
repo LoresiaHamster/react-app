@@ -30,9 +30,10 @@
 }
 
 .gridWrap > * {
+  padding: 14px;
   border-radius: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: white;
   box-shadow: 2px 4px 8px 0px #bababa;

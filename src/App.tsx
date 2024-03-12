@@ -5,6 +5,8 @@ import Alert from "./components/Alert";
 import Button from "./components/Button";
 import "./App.css";
 
+import { BsFillCalendar2WeekFill } from "react-icons/bs";
+
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
 
@@ -32,7 +34,8 @@ function App() {
       <Button onClick={() => setAlertVisibility(true)}>My Button</Button>
       {alertVisible && (
         <Alert onClose={() => setAlertVisibility(false)}>
-          Hello <span>World!</span>
+          <BsFillCalendar2WeekFill color="#007bff" size="20" /> Hello{" "}
+          <span>World!</span>
         </Alert>
       )}
     </div>

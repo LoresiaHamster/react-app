@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styles from "./ListGroup.module.css";
 
+//import styled from "styled-components";
+import Like from "../Like";
+
 interface Props {
   items: string[];
   heading: string;
@@ -29,6 +32,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             }}
           >
             {item}
+            <Like onClick={() => console.log("like clicked")} />
           </li>
         ))}
       </ul>
