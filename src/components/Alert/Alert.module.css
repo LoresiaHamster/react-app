@@ -7,17 +7,17 @@
   position: relative;;
 }
 
-.alert_primary {
+.alertPrimary {
   border-color:#b8daff;
   background-color:#cce5ff; 
   color: #004085;
 }
 
-.alert_dismissible {
+.alertDismissible {
   padding-right: 4rem;
 }
 
-.alert_dismissible .close {
+.alertDismissible .close {
   position: absolute;
   top: 0;
   right: 0;

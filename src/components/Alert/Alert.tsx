@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import "./Alert.css";
+import styles from "./Alert.module.css";
 
 interface Props {
   children: ReactNode;
@@ -8,9 +8,15 @@ interface Props {
 
 function Alert({ children, onClose }: Props) {
   return (
-    <div className="alert alert_primary alert_dismissible">
+    <div
+      className={[
+        styles.alert,
+        styles.alertPrimary,
+        styles.alertDismissible,
+      ].join(" ")}
+    >
       {children}
-      <button type="button" className="close" onClick={onClose}>
+      <button type="button" className={styles.close} onClick={onClose}>
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
