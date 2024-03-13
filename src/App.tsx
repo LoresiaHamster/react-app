@@ -21,6 +21,14 @@ function App() {
     setDrink({ ...drink, price: 6 });
   };
 
+  const [drink2, setDrink2] = useState({
+    ...drink,
+    id: 1,
+  });
+  const handleDrink2Click = () => {
+    setDrink2({ ...drink2, price: 10 });
+  };
+
   // customers (Object)
   const [customer, setCustomer] = useState({
     name: 'John',
@@ -107,6 +115,9 @@ function App() {
           {bug.title} {bug.fixed ? 'Fixed' : 'New'}
         </p>
       ))}
+
+      <button onClick={handleDrink2Click}>Drink2 change price</button>
+      <div>{drink2.price}</div>
     </div>
   );
 }
