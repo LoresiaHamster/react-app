@@ -5,8 +5,11 @@ import ListGroup from './components/ListGroup';
 import Alert from './components/Alert';
 import Button from './components/Button';
 import Message from './components/Message';
-import './App.css';
+import NavBar from './components/NavBar';
+import Cart from './components/Cart';
+import ExpandableText from './components/ExpandableText';
 
+import './App.css';
 import { BsFillCalendar2WeekFill } from 'react-icons/bs';
 
 function App() {
@@ -88,6 +91,46 @@ function App() {
     console.log(item);
   };
 
+  // shoppingcart items
+  const [cartItems, setCartItems] = useState(['Product1', 'Product2']);
+
+  // games items
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: 'John',
+    },
+  });
+  const handleGameClick = () => {
+    setGame({ ...game, player: { ...game.player, name: 'Bob' } });
+  };
+
+  // pizza items
+  const [pizza, setPizza] = useState({
+    name: 'Spicy Pepperoni',
+    toppings: ['Mushroom'],
+  });
+  const handlePizzaClick = () => {
+    setPizza({ ...pizza, toppings: [...pizza.toppings, 'Cheese'] });
+  };
+
+  // products items
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: 'Product 1', quantity: 1 },
+      { id: 2, title: 'Product 2', quantity: 1 },
+    ],
+  });
+  const handleCartClick = () => {
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
+      ),
+    });
+  };
+
   return (
     <div>
       <ListGroup
@@ -118,6 +161,43 @@ function App() {
 
       <button onClick={handleDrink2Click}>Drink2 change price</button>
       <div>{drink2.price}</div>
+      <div className='CartWrap'>
+        <NavBar cartItemsCount={cartItems.length}></NavBar>
+        <Cart cartItems={cartItems} onClear={() => setCartItems([])}></Cart>
+      </div>
+
+      <div>
+        <button onClick={handleGameClick}>{game.player.name}</button>
+      </div>
+
+      <div>
+        <button onClick={handlePizzaClick}>{pizza.toppings.toString()}</button>
+      </div>
+
+      <div>
+        <button onClick={handleCartClick}>
+          {cart.items.map(
+            ({ title, quantity }) => title + ' (' + quantity + ') '
+          )}
+        </button>
+      </div>
+
+      <div>
+        <ExpandableText maxChars={100}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+          consequuntur quas quibusdam numquam, natus eveniet eaque dolor optio
+          laborum et assumenda minus suscipit fugiat voluptatum sapiente quis
+          quos excepturi? Atque totam fuga assumenda quia ratione dolores magni
+          ab voluptates, neque dignissimos, perferendis ipsam deleniti quae
+          rerum, quaerat quos tempore dolorem. Molestias nam obcaecati quidem
+          aliquam totam officia doloribus voluptas aspernatur magni, aliquid
+          labore voluptate adipisci, perspiciatis placeat hic facere beatae
+          temporibus odit dolores enim rem nemo id! Animi quidem dignissimos
+          voluptatum, perferendis consequuntur ut sed deleniti iste fugit quos
+          doloremque quis atque distinctio debitis accusantium aliquid sequi
+          beatae excepturi tempora.
+        </ExpandableText>
+      </div>
     </div>
   );
 }
