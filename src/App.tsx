@@ -9,8 +9,10 @@ import NavBar from './components/NavBar';
 import Cart from './components/Cart';
 import ExpandableText from './components/ExpandableText';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BsFillCalendar2WeekFill } from 'react-icons/bs';
+import Form from './components/Form';
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
@@ -147,19 +149,27 @@ function App() {
       )}
       <Message />
       <br />
-      <button onClick={handleDrinkClick}>Drink Price {drink.price}</button>
-      <button onClick={handleCustomerClick}>
+      <button className='btn btn-primary' onClick={handleDrinkClick}>
+        Drink Price {drink.price}
+      </button>
+      <button className='btn btn-primary' onClick={handleCustomerClick}>
         Customer Zip {customer.address.zipCode}
       </button>
-      <button onClick={handleTagsClick}>Tags: {tags.toString()}</button>
-      <button onClick={handleBugsClick}>Bugs</button>
+      <button className='btn btn-primary' onClick={handleTagsClick}>
+        Tags: {tags.toString()}
+      </button>
+      <button className='btn btn-primary' onClick={handleBugsClick}>
+        Bugs
+      </button>
       {bugs.map((bug) => (
         <p key={bug.id}>
           {bug.title} {bug.fixed ? 'Fixed' : 'New'}
         </p>
       ))}
 
-      <button onClick={handleDrink2Click}>Drink2 change price</button>
+      <button className='btn btn-primary' onClick={handleDrink2Click}>
+        Drink2 change price
+      </button>
       <div>{drink2.price}</div>
       <div className='CartWrap'>
         <NavBar cartItemsCount={cartItems.length}></NavBar>
@@ -167,15 +177,19 @@ function App() {
       </div>
 
       <div>
-        <button onClick={handleGameClick}>{game.player.name}</button>
+        <button className='btn btn-primary' onClick={handleGameClick}>
+          {game.player.name}
+        </button>
       </div>
 
       <div>
-        <button onClick={handlePizzaClick}>{pizza.toppings.toString()}</button>
+        <button className='btn btn-primary' onClick={handlePizzaClick}>
+          {pizza.toppings.toString()}
+        </button>
       </div>
 
       <div>
-        <button onClick={handleCartClick}>
+        <button className='btn btn-primary' onClick={handleCartClick}>
           {cart.items.map(
             ({ title, quantity }) => title + ' (' + quantity + ') '
           )}
@@ -198,6 +212,8 @@ function App() {
           beatae excepturi tempora.
         </ExpandableText>
       </div>
+
+      <Form></Form>
     </div>
   );
 }
