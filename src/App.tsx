@@ -8,11 +8,12 @@ import Message from './components/Message';
 import NavBar from './components/NavBar';
 import Cart from './components/Cart';
 import ExpandableText from './components/ExpandableText';
+import Form from './components/Form';
+import ReactForm from './components/ReactForm';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BsFillCalendar2WeekFill } from 'react-icons/bs';
-import Form from './components/Form';
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
@@ -214,6 +215,8 @@ function App() {
       </div>
 
       <Form></Form>
+
+      <ReactForm></ReactForm>
     </div>
   );
 }
