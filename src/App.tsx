@@ -15,6 +15,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BsFillCalendar2WeekFill } from 'react-icons/bs';
 
+// TEST
+
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
 
